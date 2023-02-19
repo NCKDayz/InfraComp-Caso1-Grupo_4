@@ -1,5 +1,5 @@
 public class Productor extends Thread {
-    static private int id = 0;
+    private int id = 0;
     static private Buffer buffer;
     private String tipo;
     static private Consecutivo identificador;

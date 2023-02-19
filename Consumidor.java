@@ -5,7 +5,7 @@ import java.util.concurrent.CyclicBarrier;
 
 public class Consumidor extends Thread{
 
-    static private int id = 0;
+    private int id = 0;
     static private Buffer bufferEntrada;
     static private Buffer bufferSalida;
     private String tipo;
@@ -28,8 +28,7 @@ public class Consumidor extends Thread{
         System.out.println("Entra etapa 2 o 3" + "-" + "Consumidor " + id);
         System.out.println("Llegue 1");
         Producto producto = bufferEntrada.extraer(tipo);
-        System.out.println("Extraje");
-        //System.out.println("Consumidor " + id + " consume " + producto.getTipo() +  " " + producto.getId());
+        System.out.println("Consumidor " + id + " de tipo " + tipo +  " consume " + producto.getTipo() +  " " + producto.getId());
         try {
             Random random = new Random();
             Thread.sleep(random.nextInt(451) + 50);
@@ -47,7 +46,7 @@ public class Consumidor extends Thread{
             System.out.println("Llegue");
             Producto producto = bufferEntrada.extraer(tipo);
             System.out.println("Sali");
-            //System.out.println("Consumidor " + id + " consume " + producto.getTipo() +  " " + producto.getId());
+            System.out.println("Consumidor " + id + " de tipo " + tipo +  " consume " + producto.getTipo() +  " " + producto.getId());
             productos.add(producto);
         }
         barrera.await();

@@ -9,8 +9,10 @@ public class Buffer {
     }
 
     public synchronized void almacenar (Producto i, String tipo) {
+        System.out.println("ALMACENAR: Antes del while el size del buffer es: " + buff.size());
         while (buff.size() == n)
         {
+            System.out.println("ALMACENAR: Después del while, el size del buffer es: " + buff.size());
             if (tipo.equals("Naranja")) {
                 System.out.println("Buffer lleno, Producto Naranja " + i.getId() + " espera");
                 try {
@@ -34,9 +36,10 @@ public class Buffer {
         }
     
         public synchronized Producto extraer (String tipo) {
+            System.out.println("EXTRAER: Antes del while el size del buffer es: " + buff.size());
             while (buff.size() == 0 || !buff.get(0).getTipo().equals(tipo))
             {
-                System.out.println("VEN Y SANA MI DOLOR");
+                System.out.println("EXTRAER: Después del while, el size del buffer es: " + buff.size());
                 if (tipo.equals("Naranja")) {
                     try {
                         wait();
