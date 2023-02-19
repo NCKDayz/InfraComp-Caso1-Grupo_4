@@ -36,6 +36,7 @@ public class Buffer {
         public synchronized Producto extraer (String tipo) {
             while (buff.size() == 0 || !buff.get(0).getTipo().equals(tipo))
             {
+                System.out.println("VEN Y SANA MI DOLOR");
                 if (tipo.equals("Naranja")) {
                     try {
                         wait();
